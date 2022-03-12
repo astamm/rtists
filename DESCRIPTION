@@ -1,5 +1,5 @@
 Package: rtist
-Title: What the Package Does (One Line, Title Case)
+Title: R for Tissue Information on Streamline Tractography
 Version: 0.0.0.9000
 Authors@R: 
     person("Aymeric", "Stamm", , "aymeric.stamm@math.cnrs.fr", role = c("aut", "cre"),
@@ -11,3 +11,13 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 URL: https://github.com/astamm/rtist
 BugReports: https://github.com/astamm/rtist/issues
+Imports: 
+    autoplotly,
+    cli,
+    dplyr,
+    furrr,
+    magrittr,
+    plotly,
+    riot,
+    rlang,
+    tidyr
