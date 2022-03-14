@@ -1,5 +1,5 @@
 Package: rtists
-Title: R for Tissue Information Structure on Tractography Streamlines
+Title: R for Tissue Integrity Superimposed on Tractography Streamlines
 Version: 0.0.0.9000
 Authors@R: 
     person("Aymeric", "Stamm", , "aymeric.stamm@math.cnrs.fr", role = c("aut", "cre"),
@@ -21,3 +21,6 @@ Imports:
     riot,
     rlang,
     tidyr
+Depends: 
+    R (>= 2.10)
+LazyData: true
