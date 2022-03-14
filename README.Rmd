@@ -89,21 +89,19 @@ library(future)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-# html_path <- knitr::fig_path("html")
-# print(html_path)
-# htmlwidgets::saveWidget(
-#     widget = out, 
-#     file = normalizePath(html_path), 
-#     selfcontained = TRUE
-#   )
-# htmltools::tags$iframe(
-#     src = html_path,
-#     width = "70%",
-#     height = "600",
-#     scrolling = "no",
-#     seamless = "seamless",
-#     frameBorder = "0",
-#     style = "display: block; margin: auto;"
-#   )
-widgetframe::frameableWidget(out)
+html_path <- knitr::fig_path("html")
+htmlwidgets::saveWidget(
+    widget = widgetframe::frameableWidget(out),
+    file = html_path,
+    selfcontained = TRUE
+  )
+htmltools::tags$iframe(
+    src = html_path,
+    width = "70%",
+    height = "600",
+    scrolling = "no",
+    seamless = "seamless",
+    frameBorder = "0",
+    style = "display: block; margin: auto;"
+  )
 ```
