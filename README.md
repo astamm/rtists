@@ -37,26 +37,26 @@ out <- autoplotly::autoplotly(uf_left)
 ℹ Displaying 2042 streamlines...
 ℹ Coloring streamlines by orientation...
 plan(sequential)
-html_path <- knitr::fig_path("html")
-print(html_path)
-[1] "man/figures/README-example-1.html"
-htmlwidgets::saveWidget(
-    widget = out, 
-    file = normalizePath(html_path), 
-    selfcontained = TRUE
-  )
-htmltools::tags$iframe(
-    src = html_path,
-    width = "70%",
-    height = "600",
-    scrolling = "no",
-    seamless = "seamless",
-    frameBorder = "0",
-    style = "display: block; margin: auto;"
-  )
+# html_path <- knitr::fig_path("html")
+# print(html_path)
+# htmlwidgets::saveWidget(
+#     widget = out, 
+#     file = normalizePath(html_path), 
+#     selfcontained = TRUE
+#   )
+# htmltools::tags$iframe(
+#     src = html_path,
+#     width = "70%",
+#     height = "600",
+#     scrolling = "no",
+#     seamless = "seamless",
+#     frameBorder = "0",
+#     style = "display: block; margin: auto;"
+#   )
+widgetframe::frameWidget(out)
 ```
 
-<div>
-<iframe src="man/figures/README-example-1.html" width="70%" height="600" scrolling="no" seamless="seamless" frameBorder="0" style="display: block; margin: auto;">
-</iframe>
-</div>
+```{=html}
+<div id="htmlwidget-970cc7c4f2374c6d8b6c" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-970cc7c4f2374c6d8b6c">{"x":{"url":"man/figures/README-/widgets/widget_example.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+```
