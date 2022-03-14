@@ -1,6 +1,5 @@
 ---
 output: github_document
-always_allow_html: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -37,9 +36,21 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(rtists)
 library(future)
-library(widgetframe)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-frameWidget(out)
+htmlwidgets::saveWidget(
+  out, 
+  file = "man/figures/README-example.html", 
+  selfcontained = FALSE, 
+  libdir = "widgets"
+)
+htmltools::tags$iframe(
+  src = "man/figures/README-example.html", 
+  scrolling = "no", 
+  seamless = "seamless",
+  frameBorder = "0", 
+  width = "100%", 
+  height = 800
+)
 ```

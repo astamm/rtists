@@ -26,14 +26,25 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(rtists)
 library(future)
-library(widgetframe)
-Le chargement a nécessité le package : htmlwidgets
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 ℹ Displaying 2042 streamlines...
 ℹ Coloring streamlines by orientation...
 plan(sequential)
-frameWidget(out)
+htmlwidgets::saveWidget(
+  out, 
+  file = "man/figures/README-example.html", 
+  selfcontained = FALSE, 
+  libdir = "widgets"
+)
+htmltools::tags$iframe(
+  src = "man/figures/README-example.html", 
+  scrolling = "no", 
+  seamless = "seamless",
+  frameBorder = "0", 
+  width = "100%", 
+  height = 800
+)
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<iframe src="man/figures/README-example.html" scrolling="no" seamless="seamless" frameBorder="0" width="100%" height="800"></iframe>
