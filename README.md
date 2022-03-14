@@ -56,4 +56,7 @@ htmltools::tags$iframe(
   )
 ```
 
-<iframe src="man/figures/README-example-1.html" width="70%" height="600" scrolling="no" seamless="seamless" frameBorder="0" style="display: block; margin: auto;"></iframe>
+<div>
+<iframe src="man/figures/README-example-1.html" width="70%" height="600" scrolling="no" seamless="seamless" frameBorder="0" style="display: block; margin: auto;">
+</iframe>
+</div>
