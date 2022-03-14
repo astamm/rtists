@@ -105,5 +105,5 @@ plan(sequential)
 #     frameBorder = "0",
 #     style = "display: block; margin: auto;"
 #   )
-widgetframe::frameWidget(out)
+widgetframe::frameableWidget(out)
 ```
