@@ -1,6 +1,7 @@
 ---
 output:
-  github_document:
+  html_document:
+    keep_md: true
     html_preview: false
 ---
 
