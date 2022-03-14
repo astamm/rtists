@@ -41,5 +41,5 @@ library(future)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-widgetframe::frameWidget(out)
+out
 ```
