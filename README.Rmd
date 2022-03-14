@@ -90,5 +90,5 @@ library(future)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-iframe_htmlwidget(out)
+out
 ```
