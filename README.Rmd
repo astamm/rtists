@@ -2,7 +2,6 @@
 output:
   html_document:
     keep_md: true
-    html_preview: false
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -23,7 +22,7 @@ iframe_htmlwidget <- function(htmlwidget) {
   htmlwidgets::saveWidget(
     widget = htmlwidget, 
     file = normalizePath(html_path), # full path, otherwise it'll complain
-    selfcontained = TRUE
+    selfcontained = FALSE, lib = "widgets"
     # selfcontained = TRUE, but still the dependencies are copied to te figures
     # dir so you need to exclude them via .gitignore to avoid commiting jquery,
     # plotly, and all other libraries in version control
@@ -90,5 +89,20 @@ library(future)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-out
+html_path <- knitr::fig_path("html")
+print(html_path)
+htmlwidgets::saveWidget(
+    widget = out, 
+    file = normalizePath(html_path), 
+    selfcontained = TRUE
+  )
+htmltools::tags$iframe(
+    src = html_path,
+    width = "70%",
+    height = "600",
+    scrolling = "no",
+    seamless = "seamless",
+    frameBorder = "0",
+    style = "display: block; margin: auto;"
+  )
 ```
