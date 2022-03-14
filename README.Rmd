@@ -1,5 +1,7 @@
 ---
-output: github_document
+output: 
+  html_document:
+    keep_md: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -39,18 +41,5 @@ library(future)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-htmlwidgets::saveWidget(
-  out, 
-  file = "man/figures/README-example.html", 
-  selfcontained = FALSE, 
-  libdir = "widgets"
-)
-htmltools::tags$iframe(
-  src = file.path(getwd(), "man/figures/README-example.html"), 
-  scrolling = "no", 
-  seamless = "seamless",
-  frameBorder = "0", 
-  width = "100%", 
-  height = 800
-)
+widgetframe::frameWidget(out)
 ```
