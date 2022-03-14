@@ -38,7 +38,7 @@ htmlwidgets::saveWidget(
   libdir = "widgets"
 )
 htmltools::tags$iframe(
-  src = "man/figures/README-example.html", 
+  src = file.path(getwd(), "man/figures/README-example.html"), 
   scrolling = "no", 
   seamless = "seamless",
   frameBorder = "0", 
@@ -47,4 +47,4 @@ htmltools::tags$iframe(
 )
 ```
 
-<iframe src="man/figures/README-example.html" scrolling="no" seamless="seamless" frameBorder="0" width="100%" height="800"></iframe>
+<iframe src="/Users/stamm-a/Softs/rtists/man/figures/README-example.html" scrolling="no" seamless="seamless" frameBorder="0" width="100%" height="800"></iframe>
