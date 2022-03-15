@@ -24,6 +24,6 @@ An object of class \code{plotly}.
 Basic 3D visualisation of tractography streamlines
 }
 \examples{
-autoplotly::autoplotly(uf_left)
+plot(uf_left)
 
 }
