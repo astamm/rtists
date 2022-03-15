@@ -1,5 +1,5 @@
 ---
-output:
+output: 
   html_document:
     keep_md: true
 ---
@@ -13,54 +13,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
-iframe_htmlwidget <- function(htmlwidget) {
-
-  html_path <- knitr::fig_path("html") # get the path like knitr would do
-  # TODO: should I ensure this is always a relative path?
-  #       it seems it is, but can't find assurances
-
-  htmlwidgets::saveWidget(
-    widget = htmlwidget, 
-    file = normalizePath(html_path), # full path, otherwise it'll complain
-    selfcontained = FALSE, lib = "widgets"
-    # selfcontained = TRUE, but still the dependencies are copied to te figures
-    # dir so you need to exclude them via .gitignore to avoid commiting jquery,
-    # plotly, and all other libraries in version control
-  )
-
-  # If local preview, you want the iframe to point to an absolute path because
-  # "when you render from within RStudio using the Knit button the preview HTML 
-  # is written to a temporary directory and then automatically displayed by 
-  # RStudio.". 
-  # https://rmarkdown.rstudio.com/github_document_format.html#HTML_Preview
-  # 
-  # They handle the images well, but they are not aware of the 
-  # iframe, and therefore, the saved htmlwidget will not be found.
-  # To overcome this, and absolute path in your system will do. However, that
-  # won't work when it's online, so before pushing this to github, you should
-  # set html_preview = FALSE and this little function will leave the iframe
-  # with a relative path
-  iframe_src_path <- ifelse(
-    test = isTRUE(rmarkdown::metadata$output$github_document$html_preview),
-    yes = normalizePath(html_path),
-    no = html_path
-  )
-
-  htmltools::tags$iframe(
-    src = iframe_src_path,
-    width = "70%",
-    height = "600",
-    scrolling = "no",
-    seamless = "seamless",
-    frameBorder = "0",
-    style = "display: block; margin: auto;"
-  )
-  # TODO: consider also not including assets in the html file but rather cdn links
-  # see for example this SO question for ideas
-  # https://stackoverflow.com/questions/51213463/how-to-skip-writing-dependencies-in-htmlwidgetssavewidget
-  # plot_html_widget$dependencies[[2]]$src$file <- NULL
-  # plot_html_widget$dependencies[[2]]$src$href <- "https://code.jquery.com/"s
-}
 ```
 
 # `rtists`
@@ -89,19 +41,5 @@ library(future)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-html_path <- knitr::fig_path("html")
-htmlwidgets::saveWidget(
-    widget = widgetframe::frameableWidget(out),
-    file = html_path,
-    selfcontained = TRUE
-  )
-htmltools::tags$iframe(
-    src = html_path,
-    width = "70%",
-    height = "600",
-    scrolling = "no",
-    seamless = "seamless",
-    frameBorder = "0",
-    style = "display: block; margin: auto;"
-  )
+out
 ```
