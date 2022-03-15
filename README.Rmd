@@ -1,7 +1,5 @@
 ---
-output: 
-  html_document:
-    keep_md: true
+output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -18,13 +16,23 @@ knitr::opts_chunk$set(
 # `rtists`
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/astamm/rtists/workflows/R-CMD-check/badge.svg)](https://github.com/astamm/rtists/actions)
+[![test-coverage](https://github.com/astamm/rtists/workflows/test-coverage/badge.svg)](https://github.com/astamm/rtists/actions)
+[![codecov](https://codecov.io/gh/astamm/rtists/branch/master/graph/badge.svg)](https://app.codecov.io/gh/astamm/rtists)
+[![pkgdown](https://github.com/astamm/rtists/workflows/pkgdown/badge.svg)](https://github.com/astamm/rtists/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rtists)](https://CRAN.R-project.org/package=rtists)
+
 <!-- badges: end -->
 
-The goal of `rtists` is to provide visualization tools for tissue integrity superimposed on tractography streamlines.
+The goal of `rtists` is to provide visualization tools for tissue
+integrity superimposed on tractography streamlines.
 
 ## Installation
 
-You can install the development version of rtists from [GitHub](https://github.com/) with:
+You can install the development version of `rtists` from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -33,7 +41,8 @@ devtools::install_github("astamm/rtists")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The following code generates a basic 3D visualisation of the left
+uncinate fasciculus:
 
 ```{r example}
 library(rtists)
@@ -41,5 +50,18 @@ library(future)
 plan(multisession)
 out <- autoplotly::autoplotly(uf_left)
 plan(sequential)
-out
 ```
+
+```{r include=FALSE}
+html_path <- knitr::fig_path("html")
+png_path <- knitr::fig_path("png")
+htmlwidgets::saveWidget(
+  out, 
+  file = html_path, 
+  selfcontained = FALSE, 
+  libdir = "lib"
+)
+webshot2::webshot(url = html_path, file = png_path)
+```
+
+[![](man/figures/README-unnamed-chunk-2-1.png)](https://astamm.github.io/rtists/articles/rtists.html)
