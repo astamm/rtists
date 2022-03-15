@@ -7,7 +7,8 @@
 
 [![R-CMD-check](https://github.com/astamm/rtists/workflows/R-CMD-check/badge.svg)](https://github.com/astamm/rtists/actions)
 [![test-coverage](https://github.com/astamm/rtists/workflows/test-coverage/badge.svg)](https://github.com/astamm/rtists/actions)
-[![codecov](https://codecov.io/gh/astamm/rtists/branch/master/graph/badge.svg)](https://app.codecov.io/gh/astamm/rtists)
+[![Codecov test
+coverage](https://codecov.io/gh/astamm/rtists/branch/master/graph/badge.svg)](https://app.codecov.io/gh/astamm/rtists?branch=master)
 [![pkgdown](https://github.com/astamm/rtists/workflows/pkgdown/badge.svg)](https://github.com/astamm/rtists/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rtists)](https://CRAN.R-project.org/package=rtists)
